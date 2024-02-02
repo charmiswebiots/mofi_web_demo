@@ -1,6 +1,8 @@
 import 'package:provider/provider.dart';
 import 'package:web_demo/config.dart';
 import 'package:web_demo/provider/dashboard_provider.dart';
+import 'package:web_demo/responsive.dart';
+import 'package:web_demo/widgets/common_drawer.dart';
 import '../../../widgets/common_app_bar.dart';
 
 class DashBoardScreen extends StatefulWidget {
@@ -21,6 +23,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               body: SingleChildScrollView(
                 child: Column(children: [
                   const CommonAppBar(),
+                  if(Responsive.isDesktop(context))
+
                   Container(
                       margin: const EdgeInsets.all(25),
                       height: dashboardPvr.heightMediaQuery(context),

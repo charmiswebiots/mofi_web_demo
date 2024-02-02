@@ -1,14 +1,31 @@
-import 'package:flutter_svg/svg.dart';
-import 'package:web_demo/common/extension/text_style_extensions.dart';
-import 'package:web_demo/common/extension/widget_extension.dart';
+import 'package:web_demo/components/drawer_list_tile.dart';
+import 'package:web_demo/widgets/constants.dart';
 import '../config.dart';
 
-  class CommonDrawer extends StatelessWidget {
+class CommonDrawer extends StatelessWidget {
   const CommonDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Drawer(backgroundColor: const Color(0xff374462),
+        child: ListView(children: [
+      Container(
+          padding: const EdgeInsets.all(appPadding),
+          child: Image.asset('assets/images/mofiLogo.png')),
+          DrawerTile(title: 'Dashboards', svgImg: 'assets/svg/dashboard_home.svg', tap: () {}, children: []),
+          DrawerTile(title: 'Widgets', svgImg: 'assets/svg/Frame 2.svg', tap: (){} ,children: []),
+          DrawerTile(title: 'File Manager', svgImg: 'assets/svg/Frame 4.svg', tap: (){} ,children: []),
+          DrawerTile(title: 'Form', svgImg: 'assets/svg/dashboard_home.svg', tap: (){} ,children: []),
+          DrawerTile(title: 'Bookmarks', svgImg: 'assets/svg/dashboard_home.svg', tap: (){} ,children: []),
+          DrawerTile(title: 'UI Kits', svgImg: 'assets/svg/dashboard_home.svg', tap: (){} ,children: []),
+          DrawerTile(title: 'Bonus Ui', svgImg: 'assets/svg/dashboard_home.svg', tap: (){} ,children: []),
+          DrawerTile(title: 'Icons', svgImg: 'assets/svg/dashboard_home.svg', tap: (){} ,children: []),
+          DrawerTile(title: 'Buttons', svgImg: 'assets/svg/dashboard_home.svg', tap: (){} ,children: []),
+          DrawerTile(title: 'Others', svgImg: 'assets/svg/dashboard_home.svg', tap: (){} ,children: []),
+    ]));
+  }
+}
+/*Column(children: [
       Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -42,144 +59,5 @@ import '../config.dart';
                     appColor(context).appTheme.whiteColor)),
           ),
         ],
-      ),
-      ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 31),
-          leading: SvgPicture.asset("assets/svg/dashboard_home.svg"),
-          title: Text(
-            "Dashboards",
-            style: appCss.outfitSemiBold14,
-          ),
-          children: const [
-            Text("Default"),
-            Text("Project"),
-            Text("E-Commerce"),
-            Text("Education"),
-            Text("NFT"),
-          ]),
-      ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 31),
-          leading: SvgPicture.asset("assets/svg/Frame 2.svg"),
-          title: Text(
-            "Widgets",
-            style: appCss.outfitSemiBold14,
-          ),
-          children: const [
-            Text("Default"),
-            Text("Project"),
-            Text("E-Commerce"),
-            Text("Education"),
-            Text("NFT"),
-          ]),
-      ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 31),
-          leading: SvgPicture.asset("assets/svg/dashboard_home.svg"),
-          title: Text(
-            "File Manager",
-            style: appCss.outfitSemiBold14,
-          ),
-          children: const [
-            Text("Default"),
-            Text("Project"),
-            Text("E-Commerce"),
-            Text("Education"),
-            Text("NFT"),
-          ]),
-      ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 31),
-          leading: SvgPicture.asset("assets/svg/dashboard_home.svg"),
-          title: Text(
-            "Form",
-            style: appCss.outfitSemiBold14,
-          ),
-          children: const [
-            Text("Default"),
-            Text("Project"),
-            Text("E-Commerce"),
-            Text("Education"),
-            Text("NFT"),
-          ]),
-      ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 31),
-          leading: SvgPicture.asset("assets/svg/dashboard_home.svg"),
-          title: Text(
-            "Bookmarks",
-            style: appCss.outfitSemiBold14,
-          ),
-          children: const [
-            Text("Default"),
-            Text("Project"),
-            Text("E-Commerce"),
-            Text("Education"),
-            Text("NFT"),
-          ]),
-      ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 31),
-          leading: SvgPicture.asset("assets/svg/dashboard_home.svg"),
-          title: Text(
-            "UI Kits",
-            style: appCss.outfitSemiBold14,
-          ),
-          children: const [
-            Text("Default"),
-            Text("Project"),
-            Text("E-Commerce"),
-            Text("Education"),
-            Text("NFT"),
-          ]),
-      ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 31),
-          leading: SvgPicture.asset("assets/svg/dashboard_home.svg"),
-          title: Text(
-            "Bonus Ui",
-            style: appCss.outfitSemiBold14,
-          ),
-          children: const [
-            Text("Default"),
-            Text("Project"),
-            Text("E-Commerce"),
-            Text("Education"),
-            Text("NFT"),
-          ]),
-      ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 31),
-          leading: SvgPicture.asset("assets/svg/dashboard_home.svg"),
-          title: Text(
-            "Icons",
-            style: appCss.outfitSemiBold14,
-          ),
-          children: const [
-            Text("Default"),
-            Text("Project"),
-            Text("E-Commerce"),
-            Text("Education"),
-            Text("NFT"),
-          ]),
-      ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 31),
-          leading: SvgPicture.asset("assets/svg/dashboard_home.svg"),
-          title: Text(
-            "Buttons",
-            style: appCss.outfitSemiBold14,
-          ),
-          children: const [
-            Text("Default"),
-            Text("Project"),
-            Text("E-Commerce"),
-            Text("Education"),
-            Text("NFT"),
-          ]),
-      ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 31),
-          leading: SvgPicture.asset("assets/svg/dashboard_home.svg"),
-          title: Text("Others", style: appCss.outfitSemiBold14),
-          children: const [
-            Text("Default"),
-            Text("Project"),
-            Text("E-Commerce"),
-            Text("Education"),
-            Text("NFT")
-          ])
-    ]);
-  }
-}
+      )
+    ])*/
