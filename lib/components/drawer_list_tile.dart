@@ -19,10 +19,7 @@ class DrawerTile extends StatelessWidget {
     return ExpansionTile(
         tilePadding: const EdgeInsets.symmetric(horizontal: 31),
         leading: SvgPicture.asset(svgImg),
-        title: Text(
-          title,
-          style: appCss.outfitSemiBold14,
-        ),
+        title: Text(title, style: appCss.outfitSemiBold14),
         children: children);
   }
 }

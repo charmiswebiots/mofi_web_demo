@@ -120,5 +120,6 @@ class AppCss {
   TextStyle lexendSemiBold26 = lexendFont(fontWeight: semiBold,fontsize:FontSizes.f26);
   TextStyle lexendSemiBold23 = lexendFont(fontWeight: semiBold,fontsize:FontSizes.f23);
   TextStyle lexendSemiBold16 = lexendFont(fontWeight: semiBold,fontsize:FontSizes.f16);
+  TextStyle lexendSemiBold12 = lexendFont(fontWeight: semiBold,fontsize:FontSizes.f12);
 
 }

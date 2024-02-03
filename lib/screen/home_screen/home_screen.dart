@@ -16,15 +16,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(drawer: CommonDrawer(),
+        child: Scaffold(
+            drawer: const CommonDrawer(),
             key: context.read<Controller>().scaffoldKey,
             backgroundColor: const Color(0xff2A3650),
-            body: Row(crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if(Responsive.isDesktop(context))
-                    Expanded(
-                        child: CommonDrawer()),
-                  const Expanded(flex: 5, child: DashBoardScreen())
+            body: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              if (Responsive.isDesktop(context))
+                const Expanded(child: CommonDrawer()),
+              const Expanded(flex: 5, child: DashBoardScreen())
             ])));
   }
 }
