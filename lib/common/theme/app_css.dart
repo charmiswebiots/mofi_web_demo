@@ -79,6 +79,7 @@ class AppCss {
 
   //Text Style outfit medium
   TextStyle outfitMedium28 = outfit(fontWeight: medium,fontsize:FontSizes.f28);
+  TextStyle outfitMedium30 = outfit(fontWeight: medium,fontsize:FontSizes.f30);
   TextStyle outfitMedium22 = outfit(fontWeight: medium,fontsize:FontSizes.f22);
   TextStyle outfitMedium21 = outfit(fontWeight: medium,fontsize:FontSizes.f21);
   TextStyle outfitMedium20 = outfit(fontWeight: medium,fontsize:FontSizes.f20);
