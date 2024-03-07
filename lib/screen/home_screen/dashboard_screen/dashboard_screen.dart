@@ -17,6 +17,8 @@ class DashBoardScreen extends StatefulWidget {
 }
 
 class _DashBoardScreenState extends State<DashBoardScreen> {
+  var selectedDate = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Consumer<DashboardProvider>(builder: (context, dashboardPvr, child) {
@@ -324,26 +326,6 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           ])).backgroundColor(Colors.white),
                 Row(children: [
                   Expanded(
-                      flex: 2,
-                      child: Container(
-                          margin: const EdgeInsets.all(25),
-                          height: dashboardPvr.heightMediaQuery(context),
-                          width: dashboardPvr.widthMediaQuery(context),
-                          decoration: BoxDecoration(
-                              color: appColor(context).appTheme.whiteColor,
-                              borderRadius: const BorderRadius.all(
-                                  Radius.circular(17))))),
-                  Expanded(
-                      flex: 2,
-                      child: Container(
-                          margin: const EdgeInsets.all(25),
-                          height: dashboardPvr.heightMediaQuery(context),
-                          width: dashboardPvr.widthMediaQuery(context),
-                          decoration: BoxDecoration(
-                              color: appColor(context).appTheme.whiteColor,
-                              borderRadius: const BorderRadius.all(
-                                  Radius.circular(17))))),
-                  Expanded(
                       flex: 3,
                       child: Container(
                           margin: const EdgeInsets.all(25),
@@ -425,24 +407,28 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                                 color: Color(0xffF4F7F9),
                                                 shape: BoxShape.circle),
                                             child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                    textAlign: TextAlign.center,
-                                                    "\$ 34,098",
-                                                    style: appCss
-                                                        .outfitSemiBold20
-                                                        .textColor(const Color(
-                                                            0xff3D434A))),
-                                                Text(
-                                                    textAlign: TextAlign.center,
-                                                    "Total Overview",
-                                                    style: appCss.outfitMedium14
-                                                        .textColor(const Color(
-                                                            0xff8D8D8D))),
-                                              ],
-                                            ))),
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      "\$ 34,098",
+                                                      style: appCss
+                                                          .outfitSemiBold20
+                                                          .textColor(
+                                                              const Color(
+                                                                  0xff3D434A))),
+                                                  Text(
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      "Total Overview",
+                                                      style: appCss
+                                                          .outfitMedium14
+                                                          .textColor(
+                                                              const Color(
+                                                                  0xff8D8D8D)))
+                                                ])))
                                   ]),
                                   SizedBox(
                                       height: 100,
@@ -598,54 +584,77 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           width: dashboardPvr.widthMediaQuery(context),
                           decoration: BoxDecoration(
                               color: appColor(context).appTheme.whiteColor,
-                              borderRadius: const BorderRadius.all(
-                                  Radius.circular(17))),
-                          child: Table(
-                            defaultColumnWidth: FixedColumnWidth(120.0),
-                            children: const [
-                              TableRow(children: [
-                                Column(children: [
-                                  Text('Files Name',
-                                      style: TextStyle(fontSize: 20.0))
-                                ]),
-                                Column(children: [
-                                  Text('File Type',
-                                      style: TextStyle(fontSize: 20.0))
-                                ]),
-                                Column(children: [
-                                  Text('Date',
-                                      style: TextStyle(fontSize: 20.0))
-                                ])
-                              ]),
-                              TableRow(children: [
-                                Column(children: [Text('Javatpoint')]),
-                                Column(children: [Text('Flutter')]),
-                                Column(children: [Text('5*')])
-                              ]),
-                              TableRow(children: [
-                                Column(children: [Text('Javatpoint')]),
-                                Column(children: [Text('MySQL')]),
-                                Column(children: [Text('5*')]),
-                              ]),
-                              TableRow(children: [
-                                Column(children: [Text('Javatpoint')]),
-                                Column(children: [Text('ReactJS')]),
-                                Column(children: [Text('5*')]),
-                              ]),
-                            ],
-                          ))),
-                  Expanded(
-                      child: Container(
-                          child: Row(
-                            children: const [],
-                          ),
-                          margin: const EdgeInsets.all(25),
-                          height: dashboardPvr.heightMediaQuery(context),
-                          width: dashboardPvr.widthMediaQuery(context),
-                          decoration: BoxDecoration(
-                              color: appColor(context).appTheme.whiteColor,
                               borderRadius:
-                                  const BorderRadius.all(Radius.circular(17)))))
+                                  const BorderRadius.all(Radius.circular(17))),
+                          child: Table(
+                              defaultColumnWidth: const FixedColumnWidth(120.0),
+                              children: [
+                                TableRow(children: [
+                                  Column(children: [
+                                    Checkbox(
+                                        activeColor: Colors.green,
+                                        focusColor: Colors.blue,
+                                        checkColor: Colors.yellow,
+                                        hoverColor: Colors.green,
+                                        value: false,
+                                        onChanged: (value) {})
+                                  ]),
+                                  const Column(children: [
+                                    Text('Files Name',
+                                        style: TextStyle(fontSize: 20.0))
+                                  ]),
+                                  const Column(children: [
+                                    Text('File Type',
+                                        style: TextStyle(fontSize: 20.0))
+                                  ]),
+                                  const Column(children: [
+                                    Text('Date',
+                                        style: TextStyle(fontSize: 20.0))
+                                  ])
+                                ]),
+                                TableRow(children: [
+                                  Column(children: [
+                                    Checkbox(
+                                        activeColor: Colors.green,
+                                        focusColor: Colors.blue,
+                                        checkColor: Colors.yellow,
+                                        hoverColor: Colors.green,
+                                        value: false,
+                                        onChanged: (value) {})
+                                  ]),
+                                  const Column(children: [Text('Javatpoint')]),
+                                  const Column(children: [Text('Flutter')]),
+                                  const Column(children: [Text('5*')])
+                                ]),
+                                TableRow(children: [
+                                  Column(children: [
+                                    Checkbox(
+                                        activeColor: Colors.green,
+                                        focusColor: Colors.blue,
+                                        checkColor: Colors.yellow,
+                                        hoverColor: Colors.green,
+                                        value: true,
+                                        onChanged: (value) {})
+                                  ]),
+                                  const Column(children: [Text('Javatpoint')]),
+                                  const Column(children: [Text('MySQL')]),
+                                  const Column(children: [Text('5*')]),
+                                ]),
+                                TableRow(children: [
+                                  Column(children: [
+                                    Checkbox(
+                                        activeColor: Colors.green,
+                                        focusColor: Colors.blue,
+                                        checkColor: Colors.yellow,
+                                        hoverColor: Colors.green,
+                                        value: true,
+                                        onChanged: (value) {})
+                                  ]),
+                                  const Column(children: [Text('Javatpoint')]),
+                                  const Column(children: [Text('ReactJS')]),
+                                  const Column(children: [Text('5*')]),
+                                ])
+                              ])))
                 ])
               ]))));
     });

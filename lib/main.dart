@@ -3,6 +3,7 @@ import 'package:web_demo/config.dart';
 import 'package:web_demo/controllers/controller.dart';
 import 'package:web_demo/provider/dashboard_provider.dart';
 import 'package:web_demo/provider/loading_provider.dart';
+import 'package:web_demo/provider/login_provider.dart';
 
 import 'common/theme/app_theme.dart';
 
@@ -40,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       create: (_) => ThemeService(snapData.data!)),
                   ChangeNotifierProvider(create: (_) => LoadingProvider()),
                   ChangeNotifierProvider(create: (_) => DashboardProvider()),
+                  ChangeNotifierProvider(create: (_) => LoginProvider()),
                   ChangeNotifierProvider(create: (_) => Controller()),
                 ],
                 child: Consumer<ThemeService>(builder: (context, theme, child) {

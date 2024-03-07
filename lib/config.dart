@@ -17,7 +17,6 @@ import 'common/app_array.dart';
 import 'common/app_fonts.dart';
 import 'common/session.dart';
 import 'config.dart';
-import 'models/user_model.dart';
 export 'package:flutter/material.dart';
 export '../common/theme/app_css.dart';
 export '../routes/index.dart';
@@ -30,7 +29,6 @@ AppFonts appFonts = AppFonts();
 // ApiServices apiServices = ApiServices();
 AppArray appArray = AppArray();
 
-UserModel? userModel;
 
 // Validation validation = Validation();
 AppCss appCss = AppCss();

@@ -1,4 +1,4 @@
 class GifAssets {
-  final successGif = "assets/gif/successGif.gif";
+  // final successGif = "assets/gif/successGif.gif";
 
 }
