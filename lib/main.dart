@@ -2,6 +2,7 @@ import 'package:provider/provider.dart';
 import 'package:web_demo/config.dart';
 import 'package:web_demo/controllers/controller.dart';
 import 'package:web_demo/provider/dashboard_provider.dart';
+import 'package:web_demo/provider/drawer_provider.dart';
 import 'package:web_demo/provider/loading_provider.dart';
 import 'package:web_demo/provider/login_provider.dart';
 
@@ -42,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ChangeNotifierProvider(create: (_) => LoadingProvider()),
                   ChangeNotifierProvider(create: (_) => DashboardProvider()),
                   ChangeNotifierProvider(create: (_) => LoginProvider()),
+                  ChangeNotifierProvider(create: (_) => DrawerProvider()),
                   ChangeNotifierProvider(create: (_) => Controller()),
                 ],
                 child: Consumer<ThemeService>(builder: (context, theme, child) {

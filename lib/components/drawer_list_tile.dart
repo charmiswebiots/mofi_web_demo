@@ -23,3 +23,17 @@ class DrawerTile extends StatelessWidget {
         children: children);
   }
 }
+
+class TabletDrawerTile extends StatelessWidget {
+  final String svgImg;
+
+  const TabletDrawerTile({super.key, required this.svgImg});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.all(5),
+        child: SvgPicture.asset(svgImg),
+        margin: EdgeInsets.all(10));
+  }
+}

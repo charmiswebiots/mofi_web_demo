@@ -38,12 +38,13 @@ dependencies:
   provider: ^6.1.1
   shared_preferences: ^2.2.2
   connectivity_plus: ^5.0.1
-  flutter_svg: ^2.0.7
+  flutter_svg:
   google_fonts: ^6.1.0
   dotted_decoration: ^2.0.0
   dotted_border: ^2.1.0
   flutter_animate: ^4.5.0
   syncfusion_flutter_charts: ^24.2.3+1
+  feather_icons_svg:
 
 dev_dependencies:
   flutter_test:
@@ -84,11 +85,18 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+    - family: outfit
+      fonts:
+        - asset: assets/fonts/Outfit-Black.ttf
+        - asset: assets/fonts/Outfit-Bold.ttf
+        - asset: assets/fonts/Outfit-ExtraBold.ttf
+        - asset: assets/fonts/Outfit-ExtraLight.ttf
+        - asset: assets/fonts/Outfit-Light.ttf
+        - asset: assets/fonts/Outfit-Medium.ttf
+        - asset: assets/fonts/Outfit-Regular.ttf
+        - asset: assets/fonts/Outfit-SemiBold.ttf
+        - asset: assets/fonts/Outfit-Thin.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
