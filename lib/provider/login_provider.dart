@@ -5,5 +5,4 @@ class LoginProvider extends ChangeNotifier {
 
 
 
-
 }

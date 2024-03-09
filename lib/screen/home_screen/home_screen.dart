@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            drawer: const CommonDrawer(),
+            // drawer: const CommonDrawer(),
             key: context.read<Controller>().scaffoldKey,
             backgroundColor: const Color(0xff2A3650),
             body: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [

@@ -24,7 +24,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       final List<ChartData> chartData = [
         ChartData('David', 30, const Color(0xff7A70BA)),
         ChartData('Steve', 25, const Color(0xffC95E9E)),
-        ChartData('Jack', 35, const Color(0xffD77748)),
+        ChartData('Jack', 35, const Color(0xffD77748)), 
         ChartData('Others', 55, const Color(0xff48A3D7))
       ];
       return SafeArea(

@@ -6,7 +6,6 @@ import '../../../common/assets/index.dart';
 import '../../../common/extension/spacing.dart';
 import '../../../config.dart';
 import '../../../provider/login_provider.dart';
-import '../../../widgets/common_drawer.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Consumer<LoginProvider>(builder: (context, loginPvr, child) {
-      return CommonDrawer(body: Scaffold(
+      return  Scaffold(
           body: Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
@@ -30,6 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
+                          VSpace(Insets.i120),
                           Image.asset(eImageAssets.loginLogo,
                               width: 100, height: 35)
                               .marginOnly(bottom: Insets.i30),
@@ -311,45 +311,48 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       ]))),
                                           const HSpace(Insets.i5),
                                           Expanded(
-                                            child: Container(
-                                                padding: const EdgeInsets
-                                                    .symmetric(
-                                                    vertical: 10),
-                                                decoration: BoxDecoration(
-                                                    color: const Color.fromARGB(
-                                                        0, 112, 112, 186)
-                                                        .withOpacity(0.1),
-                                                    border: Border.all(
-                                                        color: const Color
-                                                            .fromARGB(
-                                                            0, 112, 112, 186)
-                                                            .withOpacity(0.1)),
-                                                    borderRadius:
-                                                    BorderRadius.circular(6)),
-                                                alignment: Alignment.center,
-                                                child: const Row(
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                    children: [
-                                                      FeatherIcon(
-                                                          FeatherIcons.facebook,
-                                                          size: 16,
-                                                          strokeWidth: 2,
-                                                          color: Color(
-                                                              0xff50598e)),
-                                                      HSpace(Insets.i5),
-                                                      Text("facebook",
-                                                          style: TextStyle(
-                                                              fontSize: 14,
-                                                              fontWeight: FontWeight
-                                                                  .w400,
-                                                              fontFamily: 'outfit',
-                                                              color: Colors
-                                                                  .black,
-                                                              letterSpacing: 0.6))
-                                                    ])),
+                                              child: Container(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      vertical: 10),
+                                                  decoration: BoxDecoration(
+                                                      color: const Color
+                                                          .fromARGB(
+                                                          0, 112, 112, 186)
+                                                          .withOpacity(0.1),
+                                                      border: Border.all(
+                                                          color: const Color
+                                                              .fromARGB(
+                                                              0, 112, 112, 186)
+                                                              .withOpacity(
+                                                              0.1)),
+                                                      borderRadius:
+                                                      BorderRadius.circular(6)),
+                                                  alignment: Alignment.center,
+                                                  child: const Row(
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                      children: [
+                                                        FeatherIcon(
+                                                            FeatherIcons
+                                                                .facebook,
+                                                            size: 16,
+                                                            strokeWidth: 2,
+                                                            color: Color(
+                                                                0xff50598e)),
+                                                        HSpace(Insets.i5),
+                                                        Text("facebook",
+                                                            style: TextStyle(
+                                                                fontSize: 14,
+                                                                fontWeight: FontWeight
+                                                                    .w400,
+                                                                fontFamily: 'outfit',
+                                                                color: Colors
+                                                                    .black,
+                                                                letterSpacing: 0.6))
+                                                      ]))
                                           )
                                         ]).paddingOnly(
                                         bottom: 14,
@@ -378,7 +381,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ]))
                         ]))
               ])))
-      );
+      ;
     });
   }
 }

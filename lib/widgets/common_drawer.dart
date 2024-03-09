@@ -1,4 +1,5 @@
 import 'package:provider/provider.dart';
+import 'package:web_demo/common/extension/widget_extension.dart';
 import '../config.dart';
 import '../provider/drawer_provider.dart';
 import '../responsive.dart';
@@ -35,11 +36,12 @@ class _CommonDrawerState extends State<CommonDrawer>
               child: drawerPvr.buildTabletDrawer(context)),
         Expanded(
             child: Column(children: [
-              drawerPvr.buildAppBar(context),
+          drawerPvr
+              .buildAppBar(context)
+              .boxShadow(color: const Color.fromARGB(1, 39, 32, 120)),
           Expanded(child: Container(child: widget.body))
         ]))
       ]));
     });
   }
-
 }

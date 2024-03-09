@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:web_demo/common/extension/text_style_extensions.dart';
 import 'package:web_demo/common/extension/widget_extension.dart';
@@ -96,81 +98,115 @@ class DrawerProvider extends ChangeNotifier {
 
   Widget buildAppBar(BuildContext context) {
     return AppBar(
+        elevation: 100,
         toolbarHeight: 74,
-        titleSpacing: Insets.i30,
+        titleSpacing: Insets.i35,
         title: buildAppBarTitle(context),
-        actions: buildAppBarActions());
+        actions: buildAppBarActions(context));
   }
 
   Widget buildAppBarTitle(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("Default Dashboard",
-          style: appCss.outfitBold20.textColor(const Color(0xff3D434A))),
+      Text("Default dashboard",
+          style: appCss.outfitBold20
+              .textColor(const Color(0xff3D434A))
+              .letterSpace(0.6)),
       Row(children: [
         SvgPicture.asset('assets/svg/homeIcon.svg'),
         const HSpace(Insets.i4),
         Text("/ Dashboard / Default",
-            style: appCss.outfitRegular14.textColor(const Color(0xff8D8D8D)))
+            style: TextStyle(
+                color: Color(0xff3D434A),
+                fontFamily: 'outfit',
+                fontWeight: FontWeight.w500,
+                fontSize: 14))
       ])
     ]);
   }
 
-  List<Widget> buildAppBarActions() {
+  List<Widget> buildAppBarActions(context) {
     return [
-      buildSearchIcon(),
-      const HSpace(Insets.i15),
+      buildSearchIcon(context),
+      const HSpace(Insets.i10),
       buildNotificationIcon(),
-      const HSpace(Insets.i15),
+      const HSpace(Insets.i10),
       buildBookmarkIcon(),
-      const HSpace(Insets.i15),
+      const HSpace(Insets.i10),
       buildIcon('Star.svg'),
-      const HSpace(Insets.i15),
+      const HSpace(Insets.i10),
       buildIcon('Message.svg'),
-      const HSpace(Insets.i15),
+      const HSpace(Insets.i10),
       buildIcon('Bag.svg'),
-      const HSpace(Insets.i15),
+      const HSpace(Insets.i10),
       Image.asset('assets/images/profileImage.png', height: 30),
       const HSpace(Insets.i10),
       buildUserProfile(),
+      const HSpace(Insets.i25),
     ];
   }
 
-  Widget buildSearchIcon() {
-    return Container(
-            height: 30,
-            decoration: const BoxDecoration(
-                color: Color(0xffF4F7F9), shape: BoxShape.circle),
-            padding: const EdgeInsets.all(6),
-            child: SvgPicture.asset('assets/svg/Search.svg'))
-        .gestures(onTap: () {});
+  Widget buildSearchIcon(context) {
+    return Responsive.isDesktop(context)
+        ? SizedBox(
+            width: MediaQuery.of(context).size.width * 0.1,
+            height: 41,
+            child: TextField(
+                textAlign: TextAlign.start,
+                textAlignVertical: TextAlignVertical.top,
+                style: appCss.outfitMedium16.textColor(const Color(0xff8D8D8D)),
+                decoration: InputDecoration(
+                    fillColor: const Color(0xffF4F7F9),
+                    filled: true,
+                    border: const UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(Radius.circular(100))),
+                    prefixIcon: SvgPicture.asset('assets/svg/Search.svg',
+                            color: Colors.black)
+                        .padding(vertical: 10),
+                    hintText: 'Search mofi...',
+                    hintStyle: appCss.outfitMedium16
+                        .textColor(const Color(0xff8D8D8D)))))
+        : Container(
+                height: 41,
+                width: 42,
+                decoration: const BoxDecoration(
+                    color: Color(0xffF4F7F9), shape: BoxShape.circle),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                child: SvgPicture.asset('assets/svg/Search.svg',
+                    color: Colors.black))
+            .gestures(onTap: () {});
   }
 
   Widget buildNotificationIcon() {
     return Container(
-            height: 30,
+            height: 41,
+            width: 42,
             decoration: const BoxDecoration(
                 color: Color(0xffF4F7F9), shape: BoxShape.circle),
-            padding: const EdgeInsets.all(6),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
             child: SvgPicture.asset('assets/svg/Notification.svg'))
         .gestures(onTap: () {});
   }
 
   Widget buildBookmarkIcon() {
     return Container(
-            height: 30,
+            height: 41,
+            width: 42,
             decoration: const BoxDecoration(
                 color: Color(0xffF4F7F9), shape: BoxShape.circle),
-            padding: const EdgeInsets.all(6),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
             child: SvgPicture.asset('assets/svg/Bookmark.svg'))
         .gestures(onTap: () {});
   }
 
   Widget buildIcon(String iconName) {
     return Container(
-            height: 30,
+            height: 41,
+            width: 42,
             decoration: const BoxDecoration(
                 color: Color(0xffF4F7F9), shape: BoxShape.circle),
-            padding: const EdgeInsets.all(6),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
             child: SvgPicture.asset('assets/svg/$iconName'))
         .gestures(onTap: () {});
   }
@@ -188,6 +224,7 @@ class DrawerProvider extends ChangeNotifier {
                   fontFamily: 'outfit')),
           Text("UI Designer",
               style: TextStyle(
+                  letterSpacing: 0.7,
                   color: Color(0xff8D8D8D),
                   fontFamily: 'outfit',
                   fontWeight: FontWeight.w400,
